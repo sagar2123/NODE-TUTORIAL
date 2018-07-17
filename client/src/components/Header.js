@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 class Header extends Component {
     renderCotent(){
         switch(this.props.auth){
             case null: 
-                return "Still deciding";
+                return;
             case false:
-                return "im loggedout";
+                return  <li><a href="/auth/google">Login with google</a></li>
             default:
-                return "im loggedin";
+                return <li><a href="/api/logout">Logout</a></li>;
         }
     }
     render() {
@@ -17,7 +18,7 @@ class Header extends Component {
         return (
         <nav>
         <div className="nav-wrapper">
-        <a href="#" className="brand-logo">Logo</a>
+        <Link to= {this.props.auth ? '/surveys' : '/'}>Emaily</Link>
         <ul id="nav-mobile" className="right">
             <li><a href="sass.html">{this.renderCotent()}</a></li>
         </ul>
