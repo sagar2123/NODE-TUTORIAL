@@ -33,6 +33,8 @@ class Header extends Component {
 }
 
 function mapStateToProps(state){
+    debugger;
+    console.log(state);
     return { auth: state.auth}
 }
 
