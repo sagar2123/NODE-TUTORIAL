@@ -14,3 +14,6 @@ ReactDOM.render(
     <App/>
 </Provider>,
  document.getElementById('root'));
+
+ console.log("stripe key is", process.env.REACT_APP_STRIPE_KEY);
+console.log("stripe key is", process.env.NODE_ENV);
