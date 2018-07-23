@@ -4,7 +4,8 @@ const keys = require('./config/keys');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
-require('./models/userModel');
+require('./models/UserModel');
+require('./models/SurveyModel');
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI);
@@ -23,6 +24,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if(process.env.NODE_ENV === "production"){
 
